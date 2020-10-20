@@ -72,5 +72,13 @@
       aggregation : "sum",
       type : "double"
     }
+  },
+  materializes: {
+    segmentation: {
+      total_orders_priority: {
+        measures: ['count_of_rows'],
+        dimensions: ['o_orderdate', 'o_orderpriority', 'o_shippriority']
+      }
+    }
   }
 }
