@@ -1,0 +1,3 @@
+{
+    label: "tpch-sample-data",
+}
