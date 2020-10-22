@@ -12,7 +12,8 @@
   dimensions : {
     o_orderkey : {
       type : "decimal",
-      column : "O_ORDERKEY"
+      column : "O_ORDERKEY",
+      description: 'naber abi nasil gidiyor?'
     },
     o_custkey : {
       type : "decimal",
