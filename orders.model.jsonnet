@@ -7,7 +7,7 @@
   },
   mappings : {
     eventTimestamp: 'o_orderdate',
-    userId: 'o_custkey'
+    userId: 'o_custkey' 
   },
   dimensions : {
     o_orderkey : {
