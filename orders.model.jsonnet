@@ -77,7 +77,7 @@
     segmentation: {
       total_orders_priority: {
         measures: ['count_of_rows'],
-        dimensions: ['o_orderdate', 'o_orderpriority', 'o_shippriority']
+        dimensions: ['o_orderdate', 'o_shippriority', 'o_orderpriority']
       }
     }
   }

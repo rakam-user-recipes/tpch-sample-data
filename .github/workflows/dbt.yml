@@ -27,6 +27,9 @@ jobs:
         run: echo '${{secrets.dbt_profiles_yml}}' > .dbt/profiles.yml
       - name: Install DBT Dependencies
         run: cd .dbt && dbt deps --profiles-dir ./
+      - name: Insert DBT Seeds
+        if: github.event_name == 'repository_dispatch'
+        run: cd .dbt && dbt seed --profiles-dir ./
       - name: Run DBT [Full Refresh] # perform full-refresh for new/modified models
         if: github.event_name == 'push' && (steps.changedfiles.outputs.modified != '' || steps.changedfiles.outputs.added != '')
         run: cd .dbt && dbt run --profiles-dir ./ --full-refresh --threads 2 --models ${{ steps.changedfiles.outputs.modified }} ${{ steps.changedfiles.outputs.added }}
