@@ -52,9 +52,9 @@
       aggregation : "count",
       type : "double"
     },
-    sum_of_o_orderkey : {
+    unique_orders : {
       dimension : "o_orderkey",
-      aggregation : "sum",
+      aggregation : "approximateUnique",
       type : "double"
     },
     sum_of_o_custkey : {
@@ -76,7 +76,7 @@
   materializes: {
     segmentation: {
       total_orders_priority: {
-        measures: ['count_of_rows'],
+        measures: ['count_of_rows', 'unique_orders'],
         dimensions: ['o_orderdate', 'o_shippriority', 'o_orderpriority']
       }
     }
