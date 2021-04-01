@@ -1,6 +1,12 @@
 version: 2
 models:
     - name: testhg
+      meta:
+        measures:
+          test:
+            aggregation: count
+            reportOptions:
+              formatNumbers: '$0,0.00'
       columns:
           - name: test
             meta:
