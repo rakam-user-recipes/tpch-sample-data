@@ -1,7 +1,6 @@
 {{
   config(
    
-    schema = "RAKAM_AGGREGATES",
     alias = "ORDERS__TOTAL_ORDERS_PRIORITY",
     materialized = "incremental"
   )
@@ -20,5 +19,5 @@ GROUP BY
 
 ) AS t
                             {% if is_incremental() %}
-                               WHERE CONVERT_TIMEZONE('UTC', orders.O_ORDERDATE) > (select max(o_orderdate) from {{ this }})
+                               WHERE orders.O_ORDERDATE > (select max(o_orderdate) from {{ this }})
                             {% endif %}
