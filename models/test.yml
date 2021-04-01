@@ -5,3 +5,5 @@ models:
           - name: test
             meta:
                 type: string
+                reportOptions:
+                    formatNumbers: '0.0'
