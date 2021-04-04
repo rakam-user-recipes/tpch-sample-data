@@ -10,7 +10,7 @@ sources:
     identifier: ORDERS
     meta:
       mappings:
-        event_timestamp: o_orderdate
+        eventTimestamp: o_orderdate
       aggregates:
         total_orders_priority:
           measures: ['count_of_rows', 'unique_orders']
