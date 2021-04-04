@@ -1,12 +1,12 @@
 version: 2
 sources:
-- name: SNOWFLAKE_SAMPLE_DATA_TPCH_SF1
+- name: tpch
   database: SNOWFLAKE_SAMPLE_DATA
   schema: TPCH_SF1
   meta:
     hidden: false
   tables:
-  - name: tpch_sf_1_orders
+  - name: orders
     identifier: ORDERS
     meta:
       aggregates:
