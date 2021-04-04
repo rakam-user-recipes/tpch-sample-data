@@ -1,0 +1,49 @@
+version: 2
+sources:
+- name: SNOWFLAKE_SAMPLE_DATA_TPCH_SF1
+  database: SNOWFLAKE_SAMPLE_DATA
+  schema: TPCH_SF1
+  meta:
+    hidden: false
+  tables:
+  - name: tpch_sf_1_orders
+    identifier: ORDERS
+    meta:
+      aggregates:
+        total_orders_priority:
+          measures: ['count_of_rows', 'unique_orders']
+          dimensions: ['o_orderdate', 'o_shippriority', 'o_orderpriority']
+      measures:
+        count_of_rows:
+          aggregation: count
+        unique_orders:
+          dimension: o_orderkey
+          aggregation: approximate_unique
+    columns:
+    - name: o_orderkey
+      meta:
+        type: double
+    - name: o_custkey
+      meta:
+        type: double
+    - name: o_orderstatus
+      meta:
+        type: string
+    - name: o_totalprice
+      meta:
+        type: double
+    - name: o_orderdate
+      meta:
+        type: date
+    - name: o_orderpriority
+      meta:
+        type: string
+    - name: o_clerk
+      meta:
+        type: string
+    - name: o_shippriority
+      meta:
+        type: double
+    - name: o_comment
+      meta:
+        type: string
