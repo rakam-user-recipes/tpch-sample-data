@@ -6,7 +6,7 @@
   )
 }}
 SELECT 
-    CONVERT_TIMEZONE('UTC', source__tpch__orders.o_orderdate) AS o_orderdate,
+    source__tpch__orders.o_orderdate AS o_orderdate,
     source__tpch__orders.o_shippriority AS o_shippriority,
     source__tpch__orders.o_orderpriority AS o_orderpriority,
     count(1) AS count_of_rows,

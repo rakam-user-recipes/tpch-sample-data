@@ -9,6 +9,8 @@ sources:
   - name: orders
     identifier: ORDERS
     meta:
+      mappings:
+        event_timestamp: o_orderdate
       aggregates:
         total_orders_priority:
           measures: ['count_of_rows', 'unique_orders']
