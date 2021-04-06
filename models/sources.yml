@@ -21,6 +21,12 @@ sources:
         unique_orders:
           dimension: o_orderkey
           aggregation: approximate_unique
+      dimensions:
+        o_orderkey:
+          column : o_orderkey
+        o_custkey: o_orderkey
+        o_orderstatus: CONCAT('1' ,o_orderstatus)
+
     columns:
     - name: o_orderkey
       meta:
