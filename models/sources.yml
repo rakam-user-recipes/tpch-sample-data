@@ -15,7 +15,7 @@ sources:
         total_orders_priority:
           measures: ['count_of_rows', 'unique_orders']
           dimensions: ['o_orderdate', 'o_shippriority', 'o_orderpriority']
-      measures:
+      measures: 
         count_of_rows:
           aggregation: count
         unique_orders:

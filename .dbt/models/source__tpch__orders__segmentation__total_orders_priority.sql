@@ -1,7 +1,7 @@
 {{
   config(
    
-    schema = "EVENTS",
+    schema = "rakam_aggregates",
     alias = "SOURCE__TPCH__ORDERS__TOTAL_ORDERS_PRIORITY",
     materialized = "incremental"
   )
