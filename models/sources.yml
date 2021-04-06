@@ -3,15 +3,14 @@ sources:
 - name: tpch
   database: SNOWFLAKE_SAMPLE_DATA
   schema: TPCH_SF1
-  meta:
-    hidden: false
   tables:
   - name: orders
-    identifier: ORDERS
+    identifier: ORDERS 
     meta:
       mappings:
         eventTimestamp: o_orderdate
-      aggregates:
+        userId: o_custkey
+      aggregates: 
         total_orders_priority:
           measures: ['count_of_rows', 'unique_orders']
           dimensions: ['o_orderdate', 'o_shippriority', 'o_orderpriority']
@@ -22,36 +21,17 @@ sources:
           dimension: o_orderkey
           aggregation: approximate_unique
       dimensions:
-        o_orderkey:
-          column : o_orderkey
-        o_custkey: o_orderkey
-        o_orderstatus: CONCAT('1' ,o_orderstatus)
-
+        o_orderkey: {column : o_orderkey}
+        o_custkey: {column : o_custkey}
+        o_orderdate: {column: o_orderdate}
+        o_orderstatus: {column: o_orderstatus}
+        o_clerk: {column: o_clerk}
+        o_shippriority: {column: o_shippriority}
+        o_orderpriority: {column: o_orderpriority}
+        custom_sql: {sql: "CONCAT('1', {{TABLE}}.o_orderstatus)" }
+        
     columns:
     - name: o_orderkey
+      description: 'The unique identifier of order'
       meta:
         type: double
-    - name: o_custkey
-      meta:
-        type: double
-    - name: o_orderstatus
-      meta:
-        type: string
-    - name: o_totalprice
-      meta:
-        type: double
-    - name: o_orderdate
-      meta:
-        type: date
-    - name: o_orderpriority
-      meta:
-        type: string
-    - name: o_clerk
-      meta:
-        type: string
-    - name: o_shippriority
-      meta:
-        type: double
-    - name: o_comment
-      meta:
-        type: string

@@ -1,1 +1,6 @@
 name: test
+
+models:
+  test:
+      +materialized: view
+      +schema: test
